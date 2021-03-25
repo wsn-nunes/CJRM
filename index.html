@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Quizz App</title>
+</head>
+<body>
+  <div class="intro py-3 bg-dark text-center">
+    <div class="container">
+      <h2 class="text-light display-3 my-4">Quizz | App</h2>
+    </div>
+  </div>
+
+  <div class="quiz py-4 bg-info">
+    <div class="container">
+      <h2 class="my-5 text-white text-center">Acontecimentos em 2020</h2>
+
+      <form class="quiz-form text-light">
+
+        <div class="rounded border-bottom p-3 bg-danger my-5">
+          <p class="lead font-weight-normal">1. Onde surgiu o Corona-Virus?</p>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion1" value="A" >
+              CHINA
+            </label>
+          </div>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion1" value="B">
+              BRASIL
+            </label>
+          </div>
+        </div>
+
+        <div class="rounded border-bottom p-3 bg-danger my-5">
+          <p class="lead font-weight-normal">2. Por que o Corona-Virus é tão contagioso?</p>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion2" value="A" >
+              FICA NO AR
+            </label>
+          </div>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion2" value="B">
+              FIXA NAS SUPERFÍCIES
+            </label>
+          </div>
+        </div>
+
+        <div class="rounded border-bottom p-3 my-5 bg-danger">
+          <p class="lead font-weight-normal">3. Quantas pessoas já morreram no brasil?</p>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion3" value="A" >
+             APENAS DUAS PESSOAS
+            </label>
+          </div>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion3" value="B">
+              +300.000
+            </label>
+          </div>
+        </div>
+
+        <div class="rounded border-bottom p-3 bg-danger my-5">
+          <p class="lead font-weight-normal">4. Por que a Vacina demorou tanto no brasil?</p>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion4" value="A" >
+              POR QUE O BRASIL NÃO TEM SERINGA
+            </label>
+          </div>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion4" value="B" >
+              O BRASIL NÃO TEM UMA INSTITUIÇÃO SÉRIA
+            </label>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <button class="btn bg-primary text-light">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
