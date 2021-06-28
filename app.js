@@ -1,53 +1,31 @@
-/*
-Este exercício será um pouquinho diferente dos anteriores.
-Seu desafio é desenvolver uma versão do quiz que:
+const form = document.querySelector('[data-js="formWeather"]')
+const cityNameApp = document.querySelector('[data-js="cityNameWeather"]')
+const cityWeatherApp = document.querySelector('[data-js="cityNameClima"]')
+const cityWeatherTemperature = document.querySelector('[data-js="cityNameTemperature"')
+const cardImg = document.querySelector('[data-js="img-card"]')
 
-- Aborda um tema diferente (não pode ser de filmes);
-- Tem um tema de cores diferente do que foi apresentado na aula;
-- Exibe na tela a pontuação que o usuário fez. Não há certo ou errado, apenas faça. Essa exibição de pontos é uma das implementações que faremos na próxima aula =D
-Independente se você já fez o quiz dos filmes enquanto acompanhava a aula, tente fazer esse exercício sem rever partes da aula.
-É importante que a sua versão do quiz seja feita apenas com o conteúdo que vimos até aqui.
-Depois de fazer o que foi pedido acima, crie um repositório no GitHub para a sua aplicação e abra uma issue no repositório do curso com:
-- O link da sua versão do quiz;
-- Quais foram as suas maiores dúvidas ou dificuldades durante a execução desse exercício;
-- Quais foram as suas menores dificuldades durante a execução desse exercício.
-Link do repositório do curso: https://github.com/roger-melo-treinamentos/curso-de-js-roger-melo/issues
-Ps: se você não conseguiu fazer tudo o que foi pedido acima, abra a issue mesmo assim =)
-*/
-const form = document.querySelector(".quiz-form")
-const correctQuestions = ["A","A","B","B"]
-const element = document.createElement("h5")
-
-form.addEventListener("submit",event => {
-
+form.addEventListener("submit", async event => {
     event.preventDefault()
-
-    const Questions = [
-        form.inputQuestion1.value,
-        form.inputQuestion2.value,
-        form.inputQuestion3.value,
-        form.inputQuestion4.value
-    ]
-
-    let score = 0
-
-    correctQuestions.forEach((correctQuestion, index) => {
     
-        if(correctQuestion === Questions[index]){
-            
-            score += 25
-            console.log(score)
-            element.innerHTML = `Você acertou ${score}%`
-            element.setAttribute("class","bg-success mt-4 mb-4 p-3")
-            form.insertAdjacentElement("afterend",element)
+    const cityName = event.target.input.value
+    const cityData = await getCityName(cityName)
+    const {Key,LocalizedName} = cityData
+    const {WeatherText,Temperature,IsDayTime} = await getCityWeather(Key)
 
-        }else{
-
-            element.innerHTML = `Você acertou ${score}%`
-            element.setAttribute("class","bg-danger mt-4 mb-4 p-3")
-            form.insertAdjacentElement("afterend",element)
-
-        }
-    })
+    if(IsDayTime){
+        cardImg.src = `./src/day.jpg`
+    }else{
+        cardImg.src = `./src/night.jpg`
+    }
     
+    if(cardImg.classList.contains("d-none")){ // contains parecido com o includes , porém funciona se o conteúdo se encontra na classe do css, utilizada no html
+        cardImg.classList.remove("d-none") // este método remove a classe do elemento html
+    }
+
+    cityNameApp.textContent = LocalizedName
+    cityWeatherTemperature.textContent = Temperature.Metric.Value
+    cityWeatherApp.textContent = WeatherText
+
+    form.reset()
 })
+
